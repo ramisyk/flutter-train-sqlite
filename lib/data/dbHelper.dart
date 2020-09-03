@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite_demo/models/Product.dart';
+import 'package:sqflite_demo/models/product.dart';
 
 class DbHelper {
 
@@ -24,6 +24,7 @@ class DbHelper {
   }
 
   Future<List<Product>> getProducts() async{
+    print("getProduct worked");
     Database db = await this.db;
     var result = await db.query("products");
     return List.generate(result.length, (i){
@@ -32,8 +33,12 @@ class DbHelper {
   }
 
   Future<int> insert(Product product) async{
+    print("eklenen " + product.name);
     Database db = await this.db;
     var result = await db.insert("products", product.toMap());
+    print("result");
+    print(result);
+    return result;
   }
 
   Future<int> delete(int id) async{
