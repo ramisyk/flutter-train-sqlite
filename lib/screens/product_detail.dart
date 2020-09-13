@@ -36,7 +36,7 @@ class _ProductDetailState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ürün detayı ${product.name}"),
+        title: Text("Ürün detayı : ${product.name}"),
         actions: [
           PopupMenuButton<Options>(
             onSelected: selectProcess,
